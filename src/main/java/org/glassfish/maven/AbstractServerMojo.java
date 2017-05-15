@@ -82,8 +82,8 @@ public abstract class AbstractServerMojo extends AbstractMojo {
     private static final String NETWORK_LISTENER_KEY = "embedded-glassfish-config." +
             "server.network-config.network-listeners.network-listener.%s";
 
-    public static String PLUGIN_GAV_GROUP_ID = "co.luminositylabs.oss";
-    public static String PLUGIN_GAV_ARTIFACT_ID = "luminositylabs-maven-embedded-payara-plugin";
+    public static String PLUGIN_GAV_GROUP_ID = "co.luminositylabs.oss.maven.plugins";
+    public static String PLUGIN_GAV_ARTIFACT_ID = "embedded-payara-maven-plugin";
     public static String thisArtifactId = PLUGIN_GAV_GROUP_ID + ":" + PLUGIN_GAV_ARTIFACT_ID;
 
     private static String SHELL_JAR = "lib/embedded/glassfish-embedded-static-shell.jar";
