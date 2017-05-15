@@ -37,6 +37,7 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
+// Portions Copyright [2017] [Luminosity Labs LLC]
 
 package org.glassfish.maven;
 
@@ -134,12 +135,12 @@ public class RunMojo extends AbstractDeployMojo {
 
     }
 
-    // Retrieve all the "admin" goals defined in the maven-embedded-glassfish-plugin.
+    // Retrieve all the "admin" goals defined in the plugin declaration.
     private List<Properties> getAdminCommandConfigurations() {
 
         List<Properties> deployments = new ArrayList<Properties>();
 
-        Plugin embeddedPlugin = getPlugin("maven-embedded-glassfish-plugin");
+        Plugin embeddedPlugin = getPlugin(PLUGIN_GAV_ARTIFACT_ID);
 
         List<PluginExecution> deployGoals = getGoals(embeddedPlugin, "admin");
 
@@ -152,12 +153,12 @@ public class RunMojo extends AbstractDeployMojo {
         return deployments;
     }
 
-    // Retrieve all the "deploy" goals defined in the maven-embedded-glassfish-plugin.
+    // Retrieve all the "deploy" goals defined in the plugin declaration.
     private List<Properties> getDeploymentConfigurations() {
 
         List<Properties> deployments = new ArrayList<Properties>();
 
-        Plugin embeddedPlugin = getPlugin("maven-embedded-glassfish-plugin");
+        Plugin embeddedPlugin = getPlugin(PLUGIN_GAV_ARTIFACT_ID);
 
         List<PluginExecution> deployGoals = getGoals(embeddedPlugin, "deploy");
 

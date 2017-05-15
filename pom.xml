@@ -39,68 +39,22 @@
     holder.
 
 -->
+<!-- Portions Copyright [2017] [Luminosity Labs LLC] -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>net.java</groupId>
-        <artifactId>jvnet-parent</artifactId>
-        <version>5</version>
-    </parent>
 
-    <groupId>org.glassfish.embedded</groupId>
-    <artifactId>maven-embedded-glassfish-plugin</artifactId>
+    <groupId>co.luminositylabs.oss</groupId>
+    <artifactId>luminositylabs-maven-embedded-payara-plugin</artifactId>
     <packaging>maven-plugin</packaging>
-    <version>5.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 
-    <name>Maven Embedded GlassFish Plugin</name>
-    <description>Maven Embedded GlassFish Plugin</description>
+    <name>Maven Embedded Payara Plugin</name>
+    <description>Maven Embedded Payara Plugin</description>
 
-    <developers>
-        <developer>
-            <id>Bhavanishankar</id>
-            <name>Bhavanishankar</name>
-            <email>bhavanishankar@java.net</email>
-            <organization>Oracle</organization>
-            <organizationUrl>http://www.oracle.com</organizationUrl>
-            <roles>
-                <role>developer</role>
-            </roles>
-            <timezone>+5.30</timezone>
-        </developer>
-    </developers>
-
-    <mailingLists>
-        <mailingList>
-            <name>GlassFish Users List</name>
-            <subscribe>user-subscribe@users@glassfish.java.net</subscribe>
-            <unsubscribe>user-unsubscribe@glassfish.java.net</unsubscribe>
-            <post>users@glassfish.java.net</post>
-            <archive>http://java.net/projects/glassfish/lists/users/archive</archive>
-        </mailingList>
-        <mailingList>
-            <name>Embedded GlassFish Users List</name>
-            <subscribe>user-subscribe@users@embedded-glassfish.java.net</subscribe>
-            <unsubscribe>user-unsubscribe@embedded-glassfish.java.net</unsubscribe>
-            <post>users@embedded-glassfish.java.net</post>
-            <archive>http://java.net/projects/embedded-glassfish/lists/users/archive</archive>
-        </mailingList>
-    </mailingLists>
-
-    <issueManagement>
-        <system>JIRA</system>
-        <url>http://java.net/jira/browse/EMBEDDED_GLASSFISH</url>
-    </issueManagement>
-
-    <organization>
-        <name>Oracle</name>
-        <url>http://www.oracle.com</url>
-    </organization>
-
-    <scm>
-        <connection>scm:svn:https://svn.java.net/svn/glassfish~svn/trunk/maven-plugins/maven-embedded-glassfish-plugin/</connection>
-        <developerConnection>scm:svn:https://svn.java.net/svn/glassfish~svn/trunk/maven-plugins/maven-embedded-glassfish-plugin/</developerConnection>
-        <url>http://java.net/projects/glassfish/sources/svn/show/trunk/maven-plugins/maven-embedded-glassfish-plugin/</url>
-    </scm>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.min.version>1.6</java.min.version>
+    </properties>
 
     <build>
         <defaultGoal>install</defaultGoal>
@@ -110,8 +64,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.5.1</version>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>${java.min.version}</source>
+                    <target>${java.min.version}</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -119,7 +73,7 @@
                 <artifactId>maven-plugin-plugin</artifactId>
                 <version>2.9</version>
                 <configuration>
-                    <goalPrefix>embedded-glassfish</goalPrefix>
+                    <goalPrefix>embedded-payara</goalPrefix>
                 </configuration>
             </plugin>
         </plugins>
@@ -144,9 +98,9 @@
             <version>2.0</version>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.main.common</groupId>
-            <artifactId>simple-glassfish-api</artifactId>
-            <version>4.1.1</version>
+            <groupId>fish.payara.extras</groupId>
+            <artifactId>payara-embedded-all</artifactId>
+            <version>4.1.1.171.1</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

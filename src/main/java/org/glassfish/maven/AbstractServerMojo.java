@@ -37,6 +37,7 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
+// Portions Copyright [2017] [Luminosity Labs LLC]
 
 package org.glassfish.maven;
 
@@ -81,14 +82,16 @@ public abstract class AbstractServerMojo extends AbstractMojo {
     private static final String NETWORK_LISTENER_KEY = "embedded-glassfish-config." +
             "server.network-config.network-listeners.network-listener.%s";
 
-    public static String thisArtifactId = "org.glassfish.embedded:maven-embedded-glassfish-plugin";
+    public static String PLUGIN_GAV_GROUP_ID = "co.luminositylabs.oss";
+    public static String PLUGIN_GAV_ARTIFACT_ID = "luminositylabs-maven-embedded-payara-plugin";
+    public static String thisArtifactId = PLUGIN_GAV_GROUP_ID + ":" + PLUGIN_GAV_ARTIFACT_ID;
 
     private static String SHELL_JAR = "lib/embedded/glassfish-embedded-static-shell.jar";
     private static String FELIX_JAR = "osgi/felix/bin/felix.jar";
 
-    private static final String EMBEDDED_GROUP_ID = "org.glassfish.main.extras";
-    private static final String EMBEDDED_ALL = "glassfish-embedded-all";
-    private static final String EMBEDDED_ARTIFACT_PREFIX = "glassfish-embedded-";
+    private static final String EMBEDDED_GROUP_ID = "fish.payara.extras";
+    private static final String EMBEDDED_ALL = "payara-embedded-all";
+    private static final String EMBEDDED_ARTIFACT_PREFIX = "payara-embedded";
 
     private static final String GF_API_GROUP_ID = "org.glassfish.main.common";
     private static final String GF_API_ARTIFACT_ID = "simple-glassfish-api";

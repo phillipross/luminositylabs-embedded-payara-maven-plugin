@@ -37,6 +37,7 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
+// Portions Copyright [2017] [Luminosity Labs LLC]
 
 package org.glassfish.maven;
 
@@ -55,7 +56,7 @@ import java.util.logging.Logger;
  */
 public class PluginUtil {
 
-    private static final Logger logger = Logger.getLogger("maven-embedded-glassfish-plugin");
+    private static final Logger logger = Logger.getLogger(AbstractServerMojo.PLUGIN_GAV_ARTIFACT_ID);
 
     static {
         logger.setLevel(Level.FINE);
