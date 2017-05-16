@@ -44,6 +44,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>co.luminositylabs.oss</groupId>
+        <artifactId>luminositylabs-oss-parent</artifactId>
+        <version>0.0.18</version>
+    </parent>
+
     <groupId>co.luminositylabs.oss.maven.plugins</groupId>
     <artifactId>embedded-payara-maven-plugin</artifactId>
     <version>1.0.0-SNAPSHOT</version>
@@ -51,6 +57,7 @@
 
     <name>Maven Embedded Payara Plugin</name>
     <description>Maven Embedded Payara Plugin</description>
+    <url>https://bitbucket.org/luminositylabs/embedded-payara-maven-plugin</url>
     <licenses>
         <license>
             <distribution>repo</distribution>
@@ -59,11 +66,24 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <name>Luminosity Labs Team</name>
+            <email>luminositylabs@gmail.com</email>
+            <organization>Luminosity Labs LLC</organization>
+            <organizationUrl>http://bitbucket.com/luminositylabs</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>http://bitbucket.com/luminositylabs/luminositylabs-oss</url>
+        <connection>scm:git:https://bitbucket.org/luminositylabs/embedded-payara-maven-plugin.git</connection>
+        <tag>HEAD</tag>
+    </scm>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.min.version>1.6</java.min.version>
         <!-- Plugin versioning -->
-        <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
         <maven-plugin-plugin.version>2.9</maven-plugin-plugin.version>
         <!-- Dependency versions -->
         <dependency.maven-plugin-api.version>2.0</dependency.maven-plugin-api.version>
@@ -92,15 +112,6 @@
     <build>
         <defaultGoal>install</defaultGoal>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
-                <configuration>
-                    <source>${java.min.version}</source>
-                    <target>${java.min.version}</target>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-plugin-plugin</artifactId>
