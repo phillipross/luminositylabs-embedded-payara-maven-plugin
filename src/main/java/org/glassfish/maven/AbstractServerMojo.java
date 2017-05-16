@@ -75,8 +75,8 @@ public abstract class AbstractServerMojo extends AbstractMojo {
 
     // Only PluginUtil has access to org.glassfish.simpleglassfishapi.Constants
     // Hence declare the param names here.
-    public final static String PLATFORM_KEY = "GlassFish_Platform";
-    public final static String INSTANCE_ROOT_PROP_NAME = "com.sun.aas.instanceRoot";
+    public static final String PLATFORM_KEY = "GlassFish_Platform";
+    public static final String INSTANCE_ROOT_PROP_NAME = "com.sun.aas.instanceRoot";
     public static final String INSTALL_ROOT_PROP_NAME = "com.sun.aas.installRoot";
     public static final String CONFIG_FILE_URI_PROP_NAME = "org.glassfish.embeddable.configFileURI";
     private static final String NETWORK_LISTENER_KEY = "embedded-glassfish-config." +
@@ -127,7 +127,6 @@ public abstract class AbstractServerMojo extends AbstractMojo {
      * @parameter expression="${port}" default-value="-1"
      */
     protected int port;
-
 
     /**
      * Location of valid GlassFish installation.
@@ -315,10 +314,8 @@ public abstract class AbstractServerMojo extends AbstractMojo {
      */
     protected String containerType;
 
-//    protected GlassFish gf;
-
     // HashMap with Key=serverId, Value=Bootstrap ClassLoader
-    protected static HashMap<String, ClassLoader> classLoaders = new HashMap();
+    protected static HashMap<String, ClassLoader> classLoaders = new HashMap<String, ClassLoader>();
     private static ClassLoader classLoader;
 
     /**
@@ -326,33 +323,22 @@ public abstract class AbstractServerMojo extends AbstractMojo {
      */
     private ArtifactMetadataSource artifactMetadataSource;
 
+
     public abstract void execute() throws MojoExecutionException, MojoFailureException;
 
+
     protected ClassLoader getClassLoader() throws MojoExecutionException {
-/*
-        URLClassLoader classLoader = classLoaders.get(serverID);
-        if (classLoader != null) {
-            printClassPaths("Using Existing Bootstrap ClassLoader. ServerId = " + serverID +
-                    ", ClassPaths = ", classLoader);
-            return classLoader;
-        }
-        try {
-            classLoader = hasGlassFishInstallation() ? getInstalledGFClassLoader() : getUberGFClassLoader();
-            classLoaders.put(serverID, classLoader);
-            printClassPaths("Created New Bootstrap ClassLoader. ServerId = " + serverID
-                    + ", ClassPaths = ", classLoader);
-            return classLoader;
-        } catch (Exception ex) {
-            throw new MojoExecutionException(ex.getMessage(), ex);
-        }
-*/
         try {
             if (classLoader != null) {
                 return classLoader;
             } else {
                 classLoader = hasGlassFishInstallation() ? getInstalledGFClassLoader() : getUberGFClassLoader();
-                printClassPaths("Created New Bootstrap ClassLoader. ServerId = " + serverID
-                        + ", ClassPaths = ", classLoader);
+                printClassPaths(
+                        "Created New Bootstrap ClassLoader. ServerId = "
+                                + serverID
+                                + ", ClassPaths = ",
+                        classLoader
+                );
             }
             return classLoader;
         } catch (Exception ex) {
@@ -360,12 +346,14 @@ public abstract class AbstractServerMojo extends AbstractMojo {
         }
     }
 
+
     protected void cleanupClassLoader(String serverId) {
         ClassLoader cl = classLoaders.remove(serverID);
         if (cl != null) {
             System.out.println("Cleaned up ClassLoader for ServerID " + serverID);
         }
     }
+
 
     private void printClassPaths(String msg, ClassLoader classLoader) {
         System.out.println(msg);
@@ -378,20 +366,27 @@ public abstract class AbstractServerMojo extends AbstractMojo {
         }
     }
 
-    // checks if the glassfish installation is present in the specified installRoot
 
+    /** Checks if the glassfish installation is present in the specified installRoot */
     private boolean hasGlassFishInstallation() {
-        return installRoot != null ? new File(installRoot, SHELL_JAR).exists()
-                && new File(installRoot, FELIX_JAR).exists() : false;
+        return installRoot != null
+                && (new File(installRoot, SHELL_JAR).exists()
+                && new File(installRoot, FELIX_JAR).exists());
     }
+
 
     private ClassLoader getInstalledGFClassLoader() throws Exception {
         File gfJar = new File(installRoot, SHELL_JAR);
         File felixJar = new File(installRoot, FELIX_JAR);
-        URLClassLoader classLoader = new URLClassLoader(
-                new URL[]{gfJar.toURI().toURL(), felixJar.toURI().toURL()}, getClass().getClassLoader());
-        return classLoader;
+        return new URLClassLoader(
+                new URL[] {
+                        gfJar.toURI().toURL(),
+                        felixJar.toURI().toURL()
+                },
+                getClass().getClassLoader()
+        );
     }
+
 
     private Artifact getUberFromSpecifiedDependency() {
         if (artifacts != null) {
@@ -405,6 +400,7 @@ public abstract class AbstractServerMojo extends AbstractMojo {
         }
         return null;
     }
+
 
     // GlassFish should be of same version as simple-glassfish-api as defined in plugin's pom.
     private String getGlassfishVersion(Artifact gfMvnPlugin) throws Exception {
@@ -426,6 +422,7 @@ public abstract class AbstractServerMojo extends AbstractMojo {
         return gfVersion;
     }
 
+
     private ClassLoader getUberGFClassLoader() throws Exception {
         // Use the version user has configured in the plugin.
         Artifact gfUber = getUberFromSpecifiedDependency();
@@ -433,14 +430,18 @@ public abstract class AbstractServerMojo extends AbstractMojo {
         if (gfUber == null) { // not specified as dependency, hence not there in the classloader cl.
             Artifact gfMvnPlugin = (Artifact) project.getPluginArtifactMap().get(thisArtifactId);
             String gfVersion = getGlassfishVersion(gfMvnPlugin); // get the same version of uber jar as that of simple-glassfish-api used while building this plugin.
-            gfUber = factory.createArtifact(EMBEDDED_GROUP_ID, EMBEDDED_ALL,
-                    gfVersion, "compile", "jar");
+            gfUber = factory.createArtifact(EMBEDDED_GROUP_ID, EMBEDDED_ALL, gfVersion, "compile", "jar");
             resolver.resolve(gfUber, remoteRepositories, localRepository);
             cl = new URLClassLoader(
-                    new URL[]{gfUber.getFile().toURI().toURL()}, getClass().getClassLoader());
+                    new URL[] {
+                            gfUber.getFile().toURI().toURL()
+                    },
+                    getClass().getClassLoader()
+            );
         }
         return cl;
     }
+
 
     protected Properties getGlassFishProperties() {
         Properties props = new Properties();
@@ -497,6 +498,7 @@ public abstract class AbstractServerMojo extends AbstractMojo {
         return props;
     }
 
+
     protected Properties getBootStrapProperties() {
         setSystemProperties();
         Properties props = new Properties();
@@ -510,6 +512,7 @@ public abstract class AbstractServerMojo extends AbstractMojo {
         return props;
     }
 
+
     private void load(List<String> stringList, Properties p) {
         if (p == null || stringList == null) {
             return;
@@ -522,6 +525,7 @@ public abstract class AbstractServerMojo extends AbstractMojo {
             }
         }
     }
+
 
     private void load(File propertiesFile, Properties p) {
         if (propertiesFile == null || p == null) {
@@ -543,6 +547,7 @@ public abstract class AbstractServerMojo extends AbstractMojo {
             }
         }
     }
+
 
     private void setSystemProperties() {
         Properties sysProps = new Properties();
@@ -574,18 +579,22 @@ public abstract class AbstractServerMojo extends AbstractMojo {
 //        return new File(installRoot, "domains" + fs + "domain1").getAbsolutePath();
 //    }
 
-    public void startGlassFish(String serverId, ClassLoader cl, Properties bootstrapProperties,
+
+    public void startGlassFish(String serverId,
+                               ClassLoader cl,
+                               Properties bootstrapProperties,
                                Properties glassfishProperties) throws Exception {
         Class clazz = cl.loadClass(PluginUtil.class.getName());
-        Method m = clazz.getMethod("startGlassFish", new Class[]{String.class,
-                ClassLoader.class, Properties.class, Properties.class});
-        m.invoke(null, new Object[]{serverId, cl, bootstrapProperties, glassfishProperties});
+        Method m = clazz.getMethod("startGlassFish", String.class, ClassLoader.class, Properties.class, Properties.class);
+        m.invoke(null, serverId, cl, bootstrapProperties, glassfishProperties);
     }
+
 
     public void stopGlassFish(String serverId, ClassLoader cl) throws Exception {
         Class clazz = cl.loadClass(PluginUtil.class.getName());
-        Method m = clazz.getMethod("stopGlassFish", new Class[]{String.class});
-        m.invoke(null, new Object[]{serverId});
+        Method m = clazz.getMethod("stopGlassFish", String.class);
+        m.invoke(null, serverId);
     }
+
 
 }
