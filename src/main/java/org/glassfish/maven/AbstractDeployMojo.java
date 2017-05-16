@@ -55,7 +55,7 @@ import java.util.Properties;
 public abstract class AbstractDeployMojo extends AbstractServerMojo {
     /**
      * <b><i>Note : &lt;deploymentParams&gt; configuration can be used instead of this.</i></b>
-     * <p/>
+     *
      * Name of the application.
      *
      * @parameter expression="${name}" default-value="myapp"
@@ -64,7 +64,7 @@ public abstract class AbstractDeployMojo extends AbstractServerMojo {
 
     /**
      * <b><i>Note : &lt;deploymentParams&gt; configuration can be used instead of this.</i></b>
-     * <p/>
+     *
      * Context root of the web application.
      *
      * @parameter expression="${contextRoot}"
@@ -73,7 +73,7 @@ public abstract class AbstractDeployMojo extends AbstractServerMojo {
 
     /**
      * <b><i>Note : &lt;deploymentParams&gt; configuration can be used instead of this.</i></b>
-     * <p/>
+     *
      * Specify whether the JSPs should be precompiled during deployment.
      *
      * @parameter expression="${precompileJsp}"
@@ -82,7 +82,7 @@ public abstract class AbstractDeployMojo extends AbstractServerMojo {
 
     /**
      * <b><i>Note : &lt;deploymentParams&gt; configuration can be used instead of this.</i></b>
-     * <p/>
+     *
      * Name of the database vendor.
      *
      * @parameter expression="${dbVendorName}"
@@ -91,7 +91,7 @@ public abstract class AbstractDeployMojo extends AbstractServerMojo {
 
     /**
      * <b><i>Note : &lt;deploymentParams&gt; configuration can be used instead of this.</i></b>
-     * <p/>
+     *
      * Specify whether the tables should be created during deployment.
      *
      * @parameter expression="${createTables}"
@@ -100,7 +100,7 @@ public abstract class AbstractDeployMojo extends AbstractServerMojo {
 
     /**
      * <b><i>Note : &lt;deploymentParams&gt; configuration can be used instead of this.</i></b>
-     * <p/>
+     *
      * A comma-separated list of library JAR files.
      *
      * @parameter expression="${libraries}"
@@ -124,7 +124,7 @@ public abstract class AbstractDeployMojo extends AbstractServerMojo {
 
     /**
      * Name of the file to be deployed to Embedded GlassFish.
-     * <p/>
+     *
      * Use app configuration instead of this.
      *
      * @parameter expression="${project.build.finalName}"
@@ -133,7 +133,7 @@ public abstract class AbstractDeployMojo extends AbstractServerMojo {
 
     /**
      * Location of the application to be deployed.
-     * <p/>
+     *
      * Location could be a Java EE file archive or a directory.
      *
      * @parameter expression="${app}"
@@ -142,10 +142,10 @@ public abstract class AbstractDeployMojo extends AbstractServerMojo {
 
     /**
      * Deployment parameters to be used while deploying the application to Embedded GlassFish.
-     * <p/>
+     *
      * The deployment parameters are same as how they would be passed to
      * 'asadmin deploy' command while using standalone GlassFish.
-     * <p/>
+     *
      * For example:
      * <pre>
      * &lt;deploymentParams&gt;
@@ -164,10 +164,10 @@ public abstract class AbstractDeployMojo extends AbstractServerMojo {
     /**
      * Undeployment parameters to be used while undeploying the application
      * from Embedded GlassFish.
-     * <p/>
+     *
      * The undeployment parameters are same as how they would be passed to
      * 'asadmin undeploy' command while using standalone GlassFish.
-     * <p/>
+     *
      * For example:
      * <pre>
      * &lt;undeploymentParams&gt;

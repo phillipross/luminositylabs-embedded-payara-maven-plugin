@@ -58,13 +58,12 @@ import java.util.Properties;
 /**
  * This Mojo starts Embedded GlassFish, executes all the 'admin' goals,
  * and executes all 'deploy' goals, and waits for user's input.
- * <p/>
- * <p/>
+ *
  * While it is waiting for user's input, the user can access the deployed applications.
- * <p/>
+ *
  * Upon user's input, it undeploys all the applications that were
  * defined in all 'deploy' goals, and redeploys all of them.
- * <p/>
+ *
  * If user enters 'X' in their console for this Mojo will stop Embedded GlassFish and
  * will exit.
  *
@@ -258,7 +257,7 @@ public class RunMojo extends AbstractDeployMojo {
 
     /**
      * Read the configurations that are like this:
-     * <p/>
+     *
      * <configurations>
      * <configuration>a=b</configuration>
      * <configuration>x=y</configuration>

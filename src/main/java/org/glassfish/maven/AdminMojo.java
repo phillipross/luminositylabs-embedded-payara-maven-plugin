@@ -57,7 +57,7 @@ public class AdminMojo extends AbstractServerMojo {
 
     /**
      * The set of post startup commands to be run on Embedded GlassFish.
-     * <p/>
+     *
      * For example:
      * <pre>
      * &lt;commands&gt;

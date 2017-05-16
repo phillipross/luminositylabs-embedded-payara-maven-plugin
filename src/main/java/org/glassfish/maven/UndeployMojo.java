@@ -45,7 +45,7 @@ import org.apache.maven.plugin.MojoFailureException;
 
 /**
  * This Mojo undeploys the application from the Embedded GlassFish server.
- * <p/>
+ *
  * The name of the application to be undeployed can be specified using 'name'
  * configuration and the undeployment parameters can be specified in
  * 'undeploymentParams' configuration.

@@ -114,15 +114,15 @@ public abstract class AbstractServerMojo extends AbstractMojo {
     protected String serverID;
 
     /**
-     * <b><i>Note : Using &lt;ports&gt; configuration is preferred over this configuration.</b></i>
-     * <p/>
+     * <b><i>Note : Using &lt;ports&gt; configuration is preferred over this configuration.</i></b>
+     *
      * Specify the HTTP port number.
-     * <p/>
+     *
      * For example:
      * &lt;port&gt;8080&lt;/port&gt;
-     * <p/>
+     *
      * This setting is ignored when configFile option is used.
-     * <p/>
+     *
      *
      * @parameter expression="${port}" default-value="-1"
      */
@@ -159,18 +159,18 @@ public abstract class AbstractServerMojo extends AbstractMojo {
 
     /**
      * Specify the port numbers for the network listeners.
-     * <p/>
+     *
      * Built-in domain.xml has HTTP and HTTPS network listeners by names
      * http-listener and https-listener respectively.
      * That allows you to configure the ports like this:
-     * <p/>
+     *
      * <pre>
      * &lt;ports&gt;
      *      &lt;http-listener&gt;8080&lt;/http-listener&gt;
      *      &lt;https-listener&gt;8181&lt;/http-listener&gt;
      * &lt;/ports&gt;
      * </pre>
-     * <p/>
+     *
      * If you are using custom domain.xml, you can either configure the ports
      * directy in your domain.xml or configure using this configuration parameter by
      * correctly specifying port numbers for the the names of the network-listener element
@@ -185,7 +185,7 @@ public abstract class AbstractServerMojo extends AbstractMojo {
      * For example:
      * <pre>
      * &lt;bootstrapProperties&gt;
-     *      &lt;property>GlassFish_Platform=felix&lt;/property&gt;
+     *      &lt;property&gt;GlassFish_Platform=felix&lt;/property&gt;
      * &lt;/bootstrapProperties&gt;
      * </pre>
      *
@@ -196,9 +196,9 @@ public abstract class AbstractServerMojo extends AbstractMojo {
     /**
      * Specify the location of the properties file which has the properties required to bootstrap GlassFishRuntime.
      * For example:
-     * <p/>
+     *
      * &lt;bootstrapPropertiesFile&gt;bootstrap.properties&lt;/bootstrapPropertiesFile&gt;
-     * <p/>
+     *
      * where bootstrap.properties is a file containing the bootstrap properties.
      *
      * @parameter
@@ -207,11 +207,11 @@ public abstract class AbstractServerMojo extends AbstractMojo {
 
     /**
      * Specify the set of properties required to create a new Embedded GlassFish.
-     * <p/>
+     *
      * For example:
      * <pre>
      * &lt;glassfishProperties&gt;
-     *      &lt;property>embedded-glassfish-config.server.jms-service.jms-host.default_JMS_host.port=17676&lt;/property&gt;
+     *      &lt;property&gt;embedded-glassfish-config.server.jms-service.jms-host.default_JMS_host.port=17676&lt;/property&gt;
      * &lt;/glassfishProperties&gt;
      * </pre>
      *
@@ -222,9 +222,9 @@ public abstract class AbstractServerMojo extends AbstractMojo {
     /**
      * Specify the location of the properties file which has the properties required to create a new GlassFish.
      * For example:
-     * <p/>
+     *
      * &lt;glassfishPropertiesFile&gt;glassfish.properties&lt;/glassfishPropertiesFile&gt;
-     * <p/>
+     *
      * where glassfish.properties is a file containing the GlassFish properties.
      *
      * @parameter
@@ -238,7 +238,7 @@ public abstract class AbstractServerMojo extends AbstractMojo {
      * &lt;systemProperties&gt;
      *      &lt;property&gt;com.sun.aas.imqLib=${env.S1AS_HOME}/../mq/lib&lt;/property&gt;
      *      &lt;property&gt;com.sun.aas.imqBin=${env.S1AS_HOME}/../mq/bin&lt;/property&gt;
-     * &lt;/systemProperties>
+     * &lt;/systemProperties&gt;
      * </pre>
      *
      * @parameter
@@ -247,7 +247,7 @@ public abstract class AbstractServerMojo extends AbstractMojo {
 
     /**
      * Specify the location of the properties file which has the system properties.
-     * <p/>
+     *
      * For example:
      * &lt;systemPropertiesFile&gt;/tmp/system.properties&lt;/systemPropertiesFile&gt;
      *
@@ -258,7 +258,7 @@ public abstract class AbstractServerMojo extends AbstractMojo {
     /**
      * Specify whether the temporary file system created by Embedded GlassFish
      * should be deleted when Maven exits.
-     * <p/>
+     *
      * Embedded GlassFish creates the temporary
      * file system under java.io.tmpdir unless a different directory is specified with
      * glassfish.embedded.tmpdir system property.
