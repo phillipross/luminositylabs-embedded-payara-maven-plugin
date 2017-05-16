@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
     DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
@@ -40,21 +41,53 @@
 
 -->
 <!-- Portions Copyright [2017] [Luminosity Labs LLC] -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>co.luminositylabs.oss.maven.plugins</groupId>
     <artifactId>embedded-payara-maven-plugin</artifactId>
-    <packaging>maven-plugin</packaging>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>maven-plugin</packaging>
 
     <name>Maven Embedded Payara Plugin</name>
     <description>Maven Embedded Payara Plugin</description>
+    <licenses>
+        <license>
+            <distribution>repo</distribution>
+            <name>CDDL and GPLv2 w/ classpath execption dual license</name>
+            <url>https://glassfish.dev.java.net/public/CDDL+GPL.html</url>
+        </license>
+    </licenses>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.min.version>1.6</java.min.version>
+        <!-- Plugin versioning -->
+        <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
+        <maven-plugin-plugin.version>2.9</maven-plugin-plugin.version>
+        <!-- Dependency versions -->
+        <dependency.maven-plugin-api.version>2.0</dependency.maven-plugin-api.version>
+        <dependency.maven-project.version>2.0</dependency.maven-project.version>
+        <dependency.payara-embedded-all.version>4.1.1.171.1</dependency.payara-embedded-all.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+            <version>${dependency.maven-plugin-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-project</artifactId>
+            <version>${dependency.maven-project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>fish.payara.extras</groupId>
+            <artifactId>payara-embedded-all</artifactId>
+            <version>${dependency.payara-embedded-all.version}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <defaultGoal>install</defaultGoal>
@@ -62,7 +95,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.1</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>${java.min.version}</source>
                     <target>${java.min.version}</target>
@@ -71,7 +104,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-plugin-plugin</artifactId>
-                <version>2.9</version>
+                <version>${maven-plugin-plugin.version}</version>
                 <configuration>
                     <goalPrefix>embedded-payara</goalPrefix>
                 </configuration>
@@ -79,40 +112,4 @@
         </plugins>
     </build>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-plugin-api</artifactId>
-            <version>2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-project</artifactId>
-            <version>2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>fish.payara.extras</groupId>
-            <artifactId>payara-embedded-all</artifactId>
-            <version>4.1.1.171.1</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
-
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-plugin-plugin</artifactId>
-                <version>2.9</version>
-            </plugin>
-        </plugins>
-    </reporting>
-
-    <licenses>
-        <license>
-            <distribution>repo</distribution>
-            <name>CDDL and GPLv2 w/ classpath execption dual license</name>
-            <url>https://glassfish.dev.java.net/public/CDDL+GPL.html</url>
-        </license>
-    </licenses>
 </project>

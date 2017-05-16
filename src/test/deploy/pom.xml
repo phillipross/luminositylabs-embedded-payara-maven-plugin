@@ -41,38 +41,40 @@
 
 -->
 <!-- Portions Copyright [2017] [Luminosity Labs LLC] -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>co.luminositylabs.oss.maven.plugins.payara.embedded.tester</groupId>
-    <artifactId>tester-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>deploy-tester</artifactId>
-  <packaging>pom</packaging>
-  <name>Payara Embedded Maven Plugin Deploy Tester</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <build>
-    <defaultGoal>install</defaultGoal>
-    <plugins>
-      <plugin>
-        <groupId>co.luminositylabs.oss.maven.plugins</groupId>
-        <artifactId>embedded-payara-maven-plugin</artifactId>
-        <version>${project.version}</version>
-        <executions>
-          <execution>
-            <phase>install</phase>
-            <goals>
-              <goal>run</goal>
-            </goals>
-            <configuration>
-              <app>test.war</app>
-              <port>8080</port> 
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
+    <parent>
+        <groupId>co.luminositylabs.oss.maven.plugins.payara.embedded.tester</groupId>
+        <artifactId>tester-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>deploy-tester</artifactId>
+    <packaging>pom</packaging>
+
+    <name>Payara Embedded Maven Plugin Deploy Tester</name>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>co.luminositylabs.oss.maven.plugins</groupId>
+                <artifactId>embedded-payara-maven-plugin</artifactId>
+                <version>${project.version}</version>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <app>test.war</app>
+                            <port>8080</port>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
-
