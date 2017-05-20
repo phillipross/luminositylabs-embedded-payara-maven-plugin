@@ -52,7 +52,7 @@
 
     <groupId>co.luminositylabs.oss.maven.plugins</groupId>
     <artifactId>embedded-payara-maven-plugin</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>maven-plugin</packaging>
 
     <name>Maven Embedded Payara Plugin</name>
@@ -78,7 +78,7 @@
     <scm>
         <url>http://bitbucket.com/luminositylabs/luminositylabs-oss</url>
         <connection>scm:git:https://bitbucket.org/luminositylabs/embedded-payara-maven-plugin.git</connection>
-        <tag>HEAD</tag>
+        <tag>embedded-payara-maven-plugin-1.0.0</tag>
     </scm>
 
     <properties>
