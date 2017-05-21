@@ -55,8 +55,8 @@
     <version>1.0.1-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
-    <name>Maven Embedded Payara Plugin</name>
-    <description>Maven Embedded Payara Plugin</description>
+    <name>Payara Embedded Maven Plugin</name>
+    <description>Payara Embedded Maven Plugin</description>
     <url>https://bitbucket.org/luminositylabs/embedded-payara-maven-plugin</url>
     <licenses>
         <license>
@@ -76,13 +76,12 @@
     </developers>
 
     <scm>
-        <url>http://bitbucket.com/luminositylabs/luminositylabs-oss</url>
+        <url>http://bitbucket.com/luminositylabs/embedded-payara-maven-plugin</url>
         <connection>scm:git:https://bitbucket.org/luminositylabs/embedded-payara-maven-plugin.git</connection>
         <tag>HEAD</tag>
     </scm>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- Plugin versioning -->
         <maven-plugin-plugin.version>2.9</maven-plugin-plugin.version>
         <!-- Dependency versions -->
