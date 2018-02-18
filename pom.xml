@@ -47,7 +47,7 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.0.22</version>
+        <version>0.0.25</version>
     </parent>
 
     <groupId>co.luminositylabs.oss.maven.plugins</groupId>
@@ -87,7 +87,7 @@
         <!-- Dependency versions -->
         <dependency.maven-plugin-api.version>2.0</dependency.maven-plugin-api.version>
         <dependency.maven-project.version>2.0</dependency.maven-project.version>
-        <dependency.payara-embedded-all.version>4.1.2.173.0.1</dependency.payara-embedded-all.version>
+        <dependency.payara-embedded-all.version>4.1.2.181</dependency.payara-embedded-all.version>
     </properties>
 
     <dependencies>
@@ -116,7 +116,7 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>${maven-javadoc-plugin.version}</version>
                 <configuration>
-                    <additionalparam>-Xdoclint:none</additionalparam>
+                    <additionalOptions>-Xdoclint:none</additionalOptions>
                 </configuration>
             </plugin>
             <plugin>
