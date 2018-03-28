@@ -1,0 +1,10 @@
+image: maven:3.5.3-jdk-8
+
+pipelines:
+    default:
+        - step:
+            script:
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging dependency:list-repositories
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging dependency:tree
+                - mvn -U -V -s sonatype-settings.xml -Psonatype-snapshots,sonatype-staging clean install
+                - cd src/test && mvn -U -V -s ../../sonatype-settings.xml -Psonatype-snapshots,sonatype-staging clean install
