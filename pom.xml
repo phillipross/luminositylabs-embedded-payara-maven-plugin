@@ -47,7 +47,7 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.0.50</version>
+        <version>0.1.6</version>
     </parent>
 
     <groupId>co.luminositylabs.oss.maven.plugins</groupId>
@@ -82,12 +82,15 @@
     </scm>
 
     <properties>
+        <checkstyle.skip>true</checkstyle.skip>
+        <pmd.skip>true</pmd.skip>
+        <spotbugs.skip>true</spotbugs.skip>
         <!-- Plugin versioning -->
         <maven-plugin-plugin.version>2.9</maven-plugin-plugin.version>
         <!-- Dependency versions -->
         <dependency.maven-plugin-api.version>2.0</dependency.maven-plugin-api.version>
         <dependency.maven-project.version>2.0</dependency.maven-project.version>
-        <dependency.payara-embedded-all.version>5.194</dependency.payara-embedded-all.version>
+        <dependency.payara-embedded-all.version>5.2020.2</dependency.payara-embedded-all.version>
     </properties>
 
     <dependencies>
