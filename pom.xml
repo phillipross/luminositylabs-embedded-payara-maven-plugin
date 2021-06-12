@@ -47,12 +47,12 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.1.23-SNAPSHOT</version>
+        <version>0.1.23</version>
     </parent>
 
     <groupId>co.luminositylabs.oss.maven.plugins</groupId>
     <artifactId>embedded-payara-maven-plugin</artifactId>
-    <version>1.0.12-SNAPSHOT</version>
+    <version>1.0.12</version>
     <packaging>maven-plugin</packaging>
 
     <name>Payara Embedded Maven Plugin</name>
@@ -78,7 +78,7 @@
     <scm>
         <url>http://bitbucket.com/luminositylabs/embedded-payara-maven-plugin</url>
         <connection>scm:git:https://bitbucket.org/luminositylabs/embedded-payara-maven-plugin.git</connection>
-        <tag>HEAD</tag>
+        <tag>embedded-payara-maven-plugin-1.0.12</tag>
     </scm>
 
     <properties>
