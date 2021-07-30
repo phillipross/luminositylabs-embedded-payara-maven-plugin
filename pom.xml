@@ -47,7 +47,7 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-        <version>0.1.24-SNAPSHOT</version>
+        <version>0.2.1</version>
     </parent>
 
     <groupId>co.luminositylabs.oss.maven.plugins</groupId>
@@ -57,7 +57,7 @@
 
     <name>Payara Embedded Maven Plugin</name>
     <description>Payara Embedded Maven Plugin</description>
-    <url>https://bitbucket.org/luminositylabs/embedded-payara-maven-plugin</url>
+    <url>https://github.com/luminositylabs/embedded-payara-maven-plugin</url>
     <licenses>
         <license>
             <distribution>repo</distribution>
@@ -71,13 +71,13 @@
             <name>Luminosity Labs Team</name>
             <email>luminositylabs@gmail.com</email>
             <organization>Luminosity Labs LLC</organization>
-            <organizationUrl>http://bitbucket.com/luminositylabs</organizationUrl>
+            <organizationUrl>https://github.com/luminositylabs/</organizationUrl>
         </developer>
     </developers>
 
     <scm>
-        <url>http://bitbucket.com/luminositylabs/embedded-payara-maven-plugin</url>
-        <connection>scm:git:https://bitbucket.org/luminositylabs/embedded-payara-maven-plugin.git</connection>
+        <url>https://github.com/luminositylabs/embedded-payara-maven-plugin</url>
+        <connection>scm:git:https://github.com/luminositylabs/embedded-payara-maven-plugin.git</connection>
         <tag>HEAD</tag>
     </scm>
 
@@ -90,7 +90,7 @@
         <!-- Dependency versions -->
         <dependency.maven-plugin-api.version>2.0</dependency.maven-plugin-api.version>
         <dependency.maven-project.version>2.0</dependency.maven-project.version>
-        <dependency.payara-embedded-all.version>5.2021.4</dependency.payara-embedded-all.version>
+        <dependency.payara-embedded-all.version>5.2021.5</dependency.payara-embedded-all.version>
     </properties>
 
     <dependencies>
