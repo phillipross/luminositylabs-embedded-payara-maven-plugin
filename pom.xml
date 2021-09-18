@@ -90,7 +90,7 @@
         <!-- Dependency versions -->
         <dependency.maven-plugin-api.version>2.0</dependency.maven-plugin-api.version>
         <dependency.maven-project.version>2.0</dependency.maven-project.version>
-        <dependency.payara-embedded-all.version>5.2021.6</dependency.payara-embedded-all.version>
+        <dependency.payara-embedded-all.version>5.2021.7</dependency.payara-embedded-all.version>
     </properties>
 
     <dependencies>
