@@ -40,7 +40,7 @@
     holder.
 
 -->
-<!-- Portions Copyright [2017-2022] [Luminosity Labs LLC] -->
+<!-- Portions Copyright [2017-2023] [Luminosity Labs LLC] -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -90,7 +90,7 @@
         <!-- Dependency versions -->
         <dependency.maven-plugin-api.version>2.0</dependency.maven-plugin-api.version>
         <dependency.maven-project.version>2.0</dependency.maven-project.version>
-        <dependency.payara-embedded-all.version>5.2022.2</dependency.payara-embedded-all.version>
+        <dependency.payara-embedded-all.version>5.2022.5</dependency.payara-embedded-all.version>
     </properties>
 
     <dependencies>
