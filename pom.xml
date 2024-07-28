@@ -47,7 +47,7 @@
     <parent>
         <groupId>co.luminositylabs.oss</groupId>
         <artifactId>luminositylabs-oss-parent</artifactId>
-         <version>0.3.1</version>
+         <version>0.4.0</version>
     </parent>
 
     <groupId>co.luminositylabs.oss.maven.plugins</groupId>
@@ -142,9 +142,9 @@
 
     <profiles>
         <profile>
-            <id>java11</id>
+            <id>java11+</id>
             <activation>
-                <jdk>11</jdk>
+                <jdk>[11,)</jdk>
             </activation>
             <properties>
                 <java.min.version>11</java.min.version>
