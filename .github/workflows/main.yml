@@ -1,4 +1,4 @@
-name: Payara Embedded Maven Plugin CI
+name: Luminosity Labs Payara Embedded Maven Plugin CI
 
 on: [push, pull_request]
 
@@ -10,19 +10,19 @@ jobs:
   build-codebase:
     strategy:
       matrix:
-        os: [ubuntu-22.04]
-        jdk_version: [8.0.382-zulu, 11.0.20-zulu, 17.0.8-zulu, 20.0.2-zulu]
-        maven_version: [3.9.4]
+        os: [ubuntu-24.04]
+        jdk_version: [11.0.24-zulu]
+        maven_version: [3.9.8]
         include:
-          - os: ubuntu-22.04
-            jdk_version: 8.0.382-zulu
-            zulu_version: 8.72.0.17
-            maven_version: 3.9.4
+          - os: ubuntu-24.04
+            jdk_version: 11.0.24-zulu
+            zulu_version: 11.74.15
+            maven_version: 3.9.8
             maven_deploy: true
             docker_build: true
             maven_docker_container_image_repo: luminositylabs
             maven_docker_container_image_name: maven
-            maven_docker_container_image_tag: 3.9.4_openjdk-8u382_zulu-alpine-8.72.0.17
+            maven_docker_container_image_tag: 3.9.8_openjdk-11.0.24_zulu-alpine-11.74.15
     name: Build on OS ${{ matrix.os }} with Maven ${{ matrix.maven_version }} using JDK ${{ matrix.jdk_version }}
     runs-on: ${{ matrix.os }}
     env:
@@ -32,7 +32,7 @@ jobs:
 
     steps:
     - name: Checkout Source
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Install GPG and generate test key
       run: .github/install-gpg.sh
@@ -53,7 +53,7 @@ jobs:
         echo "${MAVEN_HOME}/bin" >> $GITHUB_PATH
 
     - name: Setup Maven repository cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       env:
         cache-name: m2repo
       with:
